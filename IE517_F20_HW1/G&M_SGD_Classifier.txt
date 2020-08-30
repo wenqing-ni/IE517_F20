@@ -1,5 +1,5 @@
 #Our first machine learning model
-#Garreta and Moncecchi pp 10-20
+#Garreta and Moncecchi pp 10-18
 #uses Iris database and SGD classifier
 import sklearn
 print( 'The scikit learn version is {}.'.format(sklearn.__version__))
