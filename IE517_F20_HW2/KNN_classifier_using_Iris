@@ -15,13 +15,14 @@ iris = datasets.load_iris()
 X = iris.data[:, [2, 3]]
 y = iris.target
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, 
+                                                    random_state=1,stratify=y)
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 sc.fit(X_train)
 X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
-knn = KNeighborsClassifier(n_neighbors=4, p=2,
+knn = KNeighborsClassifier(n_neighbors=5, p=2,
                            metric='minkowski')
 knn.fit(X_train_std, y_train)
 y_pred = knn.predict(X_test_std)
@@ -69,22 +70,22 @@ plt.ylabel('petal width [standardized]')
 plt.legend(loc='upper left')
 plt.show()
 
-error_rate = []
+score_rate = []
 for i in range(1,26):
  knn = KNeighborsClassifier(n_neighbors=i)
  knn.fit(X_train_std,y_train)
  y_pred = knn.predict(X_test_std)
- error_rate.append(np.mean(y_pred != y_test))
+ score_rate.append(accuracy_score(y_pred, y_test))
 
 plt.figure(figsize=(10,6))
-plt.plot(range(1,26),error_rate,color='blue', linestyle='dashed', 
+plt.plot(range(1,26),score_rate,color='blue', linestyle='dashed', 
          marker='o',markerfacecolor='red', markersize=10)
-plt.title('Error Rate vs. K Value')
+plt.title('score Rate vs. K Value')
 plt.xlabel('K')
-plt.ylabel('Error Rate')
-print("Minimum error:-",min(error_rate),"at K =",error_rate.index(min(error_rate)))
+plt.ylabel('score Rate')
+print("Best Score:",max(score_rate),"at K =",score_rate.index(max(score_rate))+1)
+print(score_rate)
 
 print("My name is {wenqing ni}")
 print("My NetID is: {wn5}")
 print("I hereby certify that I have read the University policy on Academic Integrity and that I am not in violation.")
-    
