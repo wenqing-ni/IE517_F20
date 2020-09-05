@@ -43,9 +43,10 @@ plt.plot(range(1,26),score_rate,color='blue', linestyle='dashed',
 plt.title('score Rate vs. K Value')
 plt.xlabel('K')
 plt.ylabel('score Rate')
-print("Best Score:",max(score_rate),"at K =",score_rate.index(max(score_rate)))
+print("Best Score:",max(score_rate),"at K =",score_rate.index(max(score_rate))+1)
 print(score_rate)
 
 print("My name is {wenqing ni}")
 print("My NetID is: {wn5}")
 print("I hereby certify that I have read the University policy on Academic Integrity and that I am not in violation.")
+
