@@ -141,6 +141,7 @@ plt.xlim([-10, 50])
 plt.show()
 #Slope: 2.449 Intercept: 41.088 adding noise
 print('The Slope of Linear Regression is: %.3f' % slr.coef_[0])
+print(slr.coef_)
 print('The Intercept of Linear Regression is: %.3f' % slr.intercept_)
 # Compute the MSE
 from sklearn.metrics import mean_squared_error
@@ -185,6 +186,7 @@ plt.show()
 
 #Compute the slope and Intercept of Ridge
 print('Slope of Ridge: %.3f' % reg.coef_[0])
+print(reg.coef_)
 print('Intercept of Ridge: %.3f' % reg.intercept_)
 #Compute the MSE of Ridge
 print('MSE of Ridge (train: %.3f, test: %.3f)' % (
@@ -268,6 +270,7 @@ plt.show()
 
 #Compute the Slope,Intrecept,MSE and R^2
 print('Slope of Lasso: %.3f' % lasso.coef_[0])
+print(lasso.coef_)
 print('Intercept of Lasso: %.3f' % lasso.intercept_)
 print('MSE of Lasso (train: %.3f, test: %.3f)' % (
 mean_squared_error(y_train, y_train_pred),
