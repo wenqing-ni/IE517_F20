@@ -119,3 +119,7 @@ plt.ylabel('Accuracy')
 plt.legend(loc='lower right')
 plt.ylim([0.8, 1.0])
 plt.show()
+
+print("My name is {wenqing ni}")
+print("My NetID is: {wn5}")
+print("I hereby certify that I have read the University policy on Academic Integrity and that I am not in violation.")
