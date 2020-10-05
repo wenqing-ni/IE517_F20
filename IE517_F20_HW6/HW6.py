@@ -81,6 +81,12 @@ print('CV accuracy: %.3f +/- %.3f' % (np.mean(scores),
  np.std(scores)))
 
 
+#out_of_sample
+scores_test = cross_val_score(estimator=pipe_dt,X=X_test,y=y_test,cv=10, n_jobs=1)
+print('CV test accuracy scores: %s' % scores_test)
+print('mean of test score: %.3f' %np.mean(scores_test))
+print('standard deviation of test score: %.3f' %np.std(scores_test))
+
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.1, random_state=1,stratify=y)
 import matplotlib.pyplot as plt
